@@ -8,11 +8,11 @@ class Result extends StatelessWidget {
 
   String get resultPhrase {
     var phrasePositive = 'You did it! All correct\n';
-    var phraseNegative = "Try again...None correct\n";
+    var phraseNegative = "Try again...\n";
     var phraseAmbigous = "Wow... Missed one\n";
-    if (totalScore < 10) {
+    if (totalScore == 5) {
       return phraseNegative + totalScore.toString() + ' points';
-    } else if (totalScore < 15) {
+    } else if (totalScore == 10) {
       return phraseAmbigous + totalScore.toString() + ' points';
     } else {
       return phrasePositive + totalScore.toString() + ' points';
