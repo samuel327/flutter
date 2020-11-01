@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
+import './constants/constants.dart' as Constants;
 
 class MyApp extends StatefulWidget {
   @override
@@ -14,36 +15,7 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
   //protect questions variable from changes
-  final _questions = const [
-    {
-      'questionText': ('What\'s your favorite color?'),
-      'answers': [
-        {"text": "Black", "score": 1},
-        {"text": "red", "score": 2},
-        {"text": "green", "score": 3},
-        {"text": "white", "score": 4},
-        {"text": "blue", "score": 5}
-      ]
-    },
-    {
-      'questionText': ('What\'s your favorite animal?'),
-      'answers': [
-        {"text": "Rabbit", "score": 1},
-        {"text": "Snake", "score": 2},
-        {"text": "Lion", "score": 3},
-        {"text": "Elephant", "score": 4}
-      ]
-    },
-    {
-      'questionText': ('What\'s your favorite car?'),
-      'answers': [
-        {"text": "Honda", "score": 1},
-        {"text": "Cadillac", "score": 2},
-        {"text": "VW Jetta", "score": 3},
-        {"text": "Corrolla", "score": 4}
-      ]
-    },
-  ];
+  final _questions = Constants.questions;
 
   //will be our callback function; the function (address) we are passing around is also known as a
   //callback function bc the receiving widget calls it in the future
@@ -69,7 +41,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My First App'),
+          title: Text('History Trivia'),
         ),
         body: _questionIndex < _questions.length
             ? Quiz(

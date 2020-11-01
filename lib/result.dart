@@ -7,15 +7,15 @@ class Result extends StatelessWidget {
   Result({this.totalScore, this.resetQuiz});
 
   String get resultPhrase {
-    var phrasePositive = 'You did it! ';
-    var phraseNegative = "Try again...";
-    var phraseAmbigous = "Wow... ";
-    if (totalScore < 5) {
-      return phraseNegative + totalScore.toString();
-    } else if (totalScore < 10) {
-      return phraseAmbigous + totalScore.toString();
+    var phrasePositive = 'You did it! All correct\n';
+    var phraseNegative = "Try again...None correct\n";
+    var phraseAmbigous = "Wow... Missed one\n";
+    if (totalScore < 10) {
+      return phraseNegative + totalScore.toString() + ' points';
+    } else if (totalScore < 15) {
+      return phraseAmbigous + totalScore.toString() + ' points';
     } else {
-      return phrasePositive + totalScore.toString();
+      return phrasePositive + totalScore.toString() + ' points';
     }
   }
 
